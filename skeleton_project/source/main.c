@@ -20,7 +20,7 @@ int main(){
         if(floor == 0){
             elevio_motorDirection(DIRN_UP);
         }
-// hei jonas;
+// hei jonas, nå går det unna;
         if(floor == N_FLOORS-1){
             elevio_motorDirection(DIRN_DOWN);
         }
