@@ -22,6 +22,7 @@ int main(){
         }
 // hei jonas;
 // hei Håkon;
+// heo
         if(floor == N_FLOORS-1){
             elevio_motorDirection(DIRN_DOWN);
         }
