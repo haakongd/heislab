@@ -1,27 +1,15 @@
 #include "start_up.h"
 #include "elevio.h"
+#include <time.h>
 
-void start (void){
-    
-    while(1){
-        
-        int definert = elevio_floorSensor();
-        if (definert == -1){
-        
-            elevio_motorDirection(DIRN_DOWN);
 
-        }
-        else{
-            elevio_motorDirection(DIRN_STOP);
-            break;
-        
-        }
+void start(void){
+    while(elevio_floorSensor() == -1){
+        elevio_motorDirection(DIRN_DOWN);
+
+        nanosleep(&(struct timespec){0, 20*1000*1000}, NULL);
     }
-    int definert = elevio_floorSensor;
-    if (0 > definert || 3 < definert){
-        start();
-    }    
-        
 
-
+    elevio_motorDirection(DIRN_STOP);
 }
+
