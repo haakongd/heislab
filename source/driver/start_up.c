@@ -6,8 +6,6 @@
 void start(void){
     while(elevio_floorSensor() == -1){
         elevio_motorDirection(DIRN_DOWN);
-
-        nanosleep(&(struct timespec){0, 20*1000*1000}, NULL);
     }
 
     elevio_motorDirection(DIRN_STOP);

@@ -59,13 +59,13 @@ int orderBelow(int floor){
 }
 
 
-int shouldStop(int floor, Direction dir){
+int shouldStop(int floor, MotorDirection dir){
 
     if (orders[floor][BUTTON_CAB]){
         return 1;
     }
 
-    if (dir == DIR_UP){
+    if (dir == DIRN_UP){
         if (orders[floor][BUTTON_HALL_UP]){
             return 1;
 
@@ -75,15 +75,15 @@ int shouldStop(int floor, Direction dir){
         } 
     }
     
-    if (dir == DIR_DOWN){
+    if (dir == DIRN_DOWN){
         if (orders[floor][BUTTON_HALL_DOWN]){
             return 1;
+        }
         if (!orderBelow(floor) && orders[floor][BUTTON_HALL_UP]){
             return 1;
         }
-        }
     }
-    if (dir == DIR_STOP){
+    if (dir == DIRN_STOP){
         if (orderExist()){
             return 1;
 
