@@ -8,6 +8,7 @@ void orderIn(void){
         for (int button = 0; button < N_BUTTONS; button++){
             if (elevio_callButton(floor, button)){
                 orders[floor][button] = 1;
+                elevio_buttonLamp(floor, button, 1);
             }
         }
     }
@@ -24,7 +25,7 @@ int orderExist(void){
 
     }
     return 0;
-}
+}        
 
 
 int orderAtFloor(int floor){
@@ -96,6 +97,7 @@ int shouldStop(int floor, MotorDirection dir){
 void clearOrders(int floor){
     for (int button = 0; button < N_BUTTONS; button ++){
         orders[floor][button] = 0;
+        elevio_buttonLamp(floor, button, 0);
     }
     
 }
